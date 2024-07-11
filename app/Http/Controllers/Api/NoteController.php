@@ -67,7 +67,7 @@ class NoteController extends Controller
         }
     }
 
-    //destroy
+    //destro
     public function destroy($id)
     {
         $note = Note::find($id);
