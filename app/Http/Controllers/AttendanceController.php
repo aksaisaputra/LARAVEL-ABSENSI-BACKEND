@@ -19,48 +19,6 @@ class AttendanceController extends Controller
         return view('pages.absensi.index', compact('attendances'));
     }
 
-    // Create
-    public function create()
-    {
-        return view('pages.absensi.create');
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'date' => 'required|date',
-            'status' => 'required|string',
-        ]);
-
-        Attendance::create($request->all());
-        return redirect()->route('attendance.index')->with('success', 'Attendance created successfully.');
-    }
-
-    // Show
-    public function show(Attendance $attendance)
-    {
-        return view('pages.absensi.show', compact('attendance'));
-    }
-
-    // Edit
-    public function edit(Attendance $attendance)
-    {
-        return view('pages.absensi.edit', compact('attendance'));
-    }
-
-    public function update(Request $request, Attendance $attendance)
-    {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'date' => 'required|date',
-            'status' => 'required|string',
-        ]);
-
-        $attendance->update($request->all());
-        return redirect()->route('attendance.index')->with('success', 'Attendance updated successfully.');
-    }
-
     // Destroy
     public function destroy(Attendance $attendance)
     {
