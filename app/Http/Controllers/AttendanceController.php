@@ -23,6 +23,6 @@ class AttendanceController extends Controller
     public function destroy(Attendance $attendance)
     {
         $attendance->delete();
-        return redirect()->route('attendance.index')->with('success', 'Attendance deleted successfully.');
+        return redirect()->route('attendances.index')->with('success', 'Attendance deleted successfully.');
     }
 }
