@@ -19,6 +19,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('companies', CompanyController::class);
     Route::resource('attendances', AttendanceController::class);
     Route::resource('permissions', PermissionController::class);
+    Route::get('/pdf/attendances', 'App\Http\Controllers\PdfController@attendancesPdf')->name('pdf.attendances');
+
 
 
 });
